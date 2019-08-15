@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/DumbwaysDotId/course-express/issues"
   },
-  "homepage": "https://github.com/DumbwaysDotId/course-express#readme"
+  "homepage": "https://github.com/DumbwaysDotId/course-express#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
