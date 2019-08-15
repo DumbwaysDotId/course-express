@@ -1,0 +1,24 @@
+{
+  "name": "course-express",
+  "version": "1.0.0",
+  "description": "dumbways course - express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DumbwaysDotId/course-express.git"
+  },
+  "keywords": [
+    "dumbways",
+    "course",
+    "express"
+  ],
+  "author": "radiegtya",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DumbwaysDotId/course-express/issues"
+  },
+  "homepage": "https://github.com/DumbwaysDotId/course-express#readme"
+}
