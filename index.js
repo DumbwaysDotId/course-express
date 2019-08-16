@@ -10,14 +10,17 @@ app.use(bodyParser.json())
 //controllers
 const TodosController = require('./controllers/todos')
 
+//middlewares
+const { authenticated } = require('./middleware')
+
 app.group("/api/v1", (router) => {
 
     //todos API
     router.get('/todos', TodosController.index)    
     router.get('/todo/:id', TodosController.show)    
-    router.post('/todo', TodosController.store)    
-    router.patch('/todo/:id', TodosController.update)    
-    router.delete('/todo/:id', TodosController.delete)
+    router.post('/todo', authenticated, TodosController.store)    
+    router.patch('/todo/:id', authenticated, TodosController.update)    
+    router.delete('/todo/:id', authenticated, TodosController.delete)
 
     //another APIs goes here
 })
