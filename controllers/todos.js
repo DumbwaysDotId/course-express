@@ -1,11 +1,9 @@
-const connection = require('../db')
-
 exports.index = (req, res) => {
     connection.query('SELECT A.*, B.name as created_by FROM todos A LEFT JOIN users B ON A.created_by = B.id', (err, rows)=> {
         if (err) throw err
       
         res.send(rows)
-    })    
+    })  
 }
 
 exports.show = (req, res) => {
