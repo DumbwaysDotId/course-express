@@ -1,21 +1,46 @@
-const Todo = require('../models').todo
+const models = require('../models')
+const Todo = models.todo
+const User = models.user
 
 exports.index = (req, res) => {
-    Todo.findAll().then(todos=>res.send(todos))
+    Todo.findAll({
+        include: [{
+            model: User,
+            as: "createdBy"
+        }]
+    }).then(todos=>res.send(todos))
 }
 
 exports.show = (req, res) => {
-    //DO IT YOURSELF - MINI QUIZ 2
+    Todo.findOne({id: req.params.id}).then(todo=> res.send(todo))
 }
 
 exports.store = (req, res) => {
-    //DO IT YOURSELF - MINI QUIZ 2
+    Todo.create(req.body).then(todo=> {
+        res.send({
+            message: "success",
+            todo
+        })
+    })
 }
 
 exports.update = (req, res) => {
-    //DO IT YOURSELF - MINI QUIZ 2
+    Todo.update(
+        req.body,
+        {where: {id: req.params.id}}
+    ).then(todo=> {
+        res.send({
+            message: "success",
+            todo
+        })
+    })
 }
 
 exports.delete = (req, res) => {
-    //DO IT YOURSELF - MINI QUIZ 2
+    Todo.destroy({where: {id: req.params.id}}).then(todo=> {
+        res.send({
+            message: "success",
+            todo
+        })
+    })
 }
